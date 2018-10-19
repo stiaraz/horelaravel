@@ -36,8 +36,11 @@
     <link href="{{asset('plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}" rel="stylesheet" />
     <link href="{{asset('plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" />
     <link href="{{asset('plugins/bower_components/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
- 
-
+ <!-- ample chart -->
+ <!-- Bootstrap Core CSS -->
+    
+    <!-- Morris CSS -->
+    <link href="{{asset('ample/plugins/bower_components/morrisjs/morris.css')}}" rel="stylesheet">
 
  <!-- ample upload file -->
   <link rel="stylesheet" href="{{asset('ample/plugins/bower_components/dropify/dist/css/dropify.min.css')}}">
@@ -600,7 +603,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbVhGRFIuk0EHdi7WE08ZhTLN_va-Wq84&callback=myMap"></script>
     <script src="{{asset ('ample/plugins/bower_components/gmaps/gmaps.min.js')}}"></script>
     <script src="{{asset('ample/plugins/bower_components/gmaps/jquery.gmaps.js')}}"></script>
-
+    
+    
+   
 
   
 </body>
