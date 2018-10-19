@@ -22,3 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/grafik', 'IndexController@grafik');
 Route::get('/notif', 'IndexController@notif');
 Route::get('/detail', 'IndexController@det');
+
+
+
+

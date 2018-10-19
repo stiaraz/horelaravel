@@ -93,15 +93,16 @@
         <div class="row nomargin">
           <div class="span12">
             <div class="headnav" style="margin-top: -45px;">
-@guest
+            @if(auth()->check())
               <ul>
-
-                <!-- <li><a href="#mySignup" data-toggle="modal"><i class="icon-group"></i> Sign up</a></li> -->
-                <li><a href="#mySignin" data-toggle="modal"><i class="icon-user"></i>Sign in</a></li>
-
+                <li><a href="#mySignup" ><i class="icon-group"></i>{{Auth::user()->email}}</a></li>
               </ul>
-
-@endguest
+            @else
+              <ul>                
+                <li><a href="#mySignup" data-toggle="modal"><i class="icon-group"></i> Sign up</a></li>
+                <li><a href="#mySignin" data-toggle="modal"><i class="icon-user"></i>Sign in</a></li>
+              </ul>
+            @endif
             </div>
             <!-- Signup Modal -->
             <div id="mySignup" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="mySignupModalLabel" aria-hidden="true">
