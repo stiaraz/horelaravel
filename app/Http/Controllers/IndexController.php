@@ -14,6 +14,20 @@ class IndexController extends Controller
     	return view ('index');
     }
 
+    public function grafik()
+    {
+    	return view ('graf');
+    }
+
+    public function notif()
+    {
+    	return view ('notif');
+    }
+    public function det()
+    {
+    	return view ('detail');
+    }
+
     public function error()
     {
         return view('error');

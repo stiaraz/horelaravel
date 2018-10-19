@@ -28,6 +28,14 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('flattern/ico/apple-touch-icon-144-precomposed.png')}}">  
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('flattern/ico/apple-touch-icon-72-precomposed.png')}}">  
   <link rel="apple-touch-icon-precomposed" href="{{ asset('flattern/ico/apple-touch-icon-57-precomposed.png')}}">  
+
+ <!--  ample dropdown -->
+    <link href="{{asset('plugins/bower_components/custom-select/custom-select.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('plugins/bower_components/switchery/dist/switchery.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('plugins/bower_components/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}" rel="stylesheet" />
+    <link href="{{asset('plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('plugins/bower_components/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
  
 
 
@@ -85,8 +93,8 @@
 @guest
               <ul>
 
-                <li><a href="#mySignup" data-toggle="modal"><i class="icon-group"></i> Sign up</a></li>
-                <li><a href="#mySignin" data-toggle="modal">Sign in</a></li>
+                <!-- <li><a href="#mySignup" data-toggle="modal"><i class="icon-group"></i> Sign up</a></li> -->
+                <li><a href="#mySignin" data-toggle="modal"><i class="icon-user"></i>Sign in</a></li>
 
               </ul>
 
@@ -232,7 +240,7 @@
           <div class="span4">
 
             
-              <a href="{{url('/')}}"><img src="{{ asset('flattern/img/gemastik.png') }}" alt="" class="logo" style="height: 120px; width: 100px; margin-top: -30px" /></a>
+              <a href="{{url('/')}}"><img src="{{ asset('flattern/img/gemastik.png') }}" alt="" class="logo" style="height: 120px; width: 110px; margin-top: -30px" /></a>
               <!-- <h1>Area Pelaksana Pemeliharaan</h1> -->
            
           </div>
@@ -246,16 +254,15 @@
                       @guest
                       <a href="{{route('index')}}">HOME</a></li>
                       @else
-                       <li><a href="{{route('home')}}">HOME</i></a></li>
-                    
-                    <li><a href="{{route('home')}}">GRAFIK</a></li>
-                    <li><a href="{{route('home')}}">DETAIL</a></li>
-                    <li><a href="{{route('home')}}">NOTIFIKASI</a></li>
+                    @yield('aktifhome')
+                    @yield('aktifgraf')
+                    @yield('aktifdet')
+                    @yield('aktifnotif')
                       @endguest
                     
 @guest
                      <li>
-                      <a href="#mySignin" data-toggle="modal"><i class="icon-user"></i>{{ __('Login') }}</a>
+                      <!-- <a href="#mySignin" data-toggle="modal"><i class="icon-user"></i>{{ __('Login') }}</a> -->
                     </li>
 @else
                     <li class="dropdown"><a class="dropdown" href="#" role="button">{{ Auth::user()->name }} <span class="caret"></span></a>
@@ -277,26 +284,16 @@
              
             </div>
           </div>
-        </div>
+        </div><img src="{{asset('flattern/img/hdr2.png')}}" style="margin-left: 85px; margin-top: -1px; margin-bottom: 10px">
       </div>
     </header>
     <!-- end header -->
 
      @yield('slider')
     @yield('content')
-    <!--@yield('content')
-    @yield('liatpost')
-    @yield('addpost') 
-    @yield('editpost')
-    @yield('slider-new')
-
-    @yield('formbuletin')
-    @yield('editbuletin')
-    @yield('bacafull')
-    @yield('error')
-    @yield('addgaleri') 
-    @yield('manage-galeri')
-    @yield('manage-ultah') -->
+    @yield('graf')
+    @yield('det')
+    @yield('notif')
 
     <section id="bottom">
       <div class="container">
@@ -315,13 +312,13 @@
     </section>
      
     
-    <footer style="background: linear-gradient(to right, #035B71 , #00A2B9);">
+    <footer style="background: linear-gradient(to left, #035B71 , #00A2B9);">
       <div class="container">
         <div class="row" style="color: white;">
           <div class="span3">
            <!--  @yield('kategori') -->
           </div>
-          <div class="span6">
+          <div class="span5">
             <div class="widget">
               <h5 class="widgetheading" style="text-align: center">Our Location</h5>
               <div id="google-map" data-latitude="-7.282373" data-longitude="112.794897" style="background-color: white;opacity: 1; "></div>
@@ -449,22 +446,6 @@
     
     </script>
 
-
-   <!--  CKEditor -->
-
- <!--  <script src="{{asset('ckeditor/ckeditor/ckeditor.js')}}"> </script>
-  <script src="{{asset('ckeditor/ckeditor/plugins/justify/plugin.js')}}"> </script>
-  <script>
-  CKEDITOR.replace( 'summary-ckeditor' );
-  </script> -->
-
-
-  
-
-    <!-- <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
-    <script>
-    CKEDITOR.replace( 'summary-ckeditor' );
-    </script> -->
     <script src="{{ asset('codesnippet/lib/highlight/highlight.pack.js') }}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 

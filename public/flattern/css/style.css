@@ -69,7 +69,7 @@ a:active {
 ==================================== */
 
 .container {
-  padding: 0 20px 0 20px;
+  padding: 0 10px 0 10px;
   position: relative;
 }
 
@@ -1078,8 +1078,7 @@ blockquote cite a, blockquote cite a:visited, blockquote cite a:visited {
 
 .marquee {
  height: 8px;  
- overflow: hidden;
- position: relative;
+ position: absolute;
  background: linear-gradient(to left, #035B71 , #00A2B9);
  color: white;
  /*border: 1px solid #035B71;*/
