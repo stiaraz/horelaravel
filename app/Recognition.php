@@ -13,6 +13,7 @@ class Recognition extends Model
     	'id',
     	'tempat',
     	'waktu',
+        'nama',
     	'foto',
     	'status'
     ];

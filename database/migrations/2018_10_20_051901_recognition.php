@@ -17,6 +17,7 @@ class Recognition extends Migration
             $table->increments('id');
             $table->string('tempat');
             $table->dateTime('waktu');
+            $table->string('nama');
             $table->string('foto');
             $table->integer('status');
         });
