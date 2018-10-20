@@ -25,4 +25,3 @@ Route::get('/detail', 'IndexController@det');
 
 
 
-
