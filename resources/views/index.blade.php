@@ -6,8 +6,8 @@
  		<!-- <p><strong>PT PLN APP Surabaya</strong>&nbsp;| JL. Ketintang Baru No 9 Surabaya 60231</p> -->
     <div class="container">
         <div class=".col-md-6">
-    
-      <iframe width="420" height="350" src="//www.youtube.com/embed/9GZVbDDcW6Q" frameborder="2px"allowfullscreen style="margin-right: 30px;"></iframe>
+      <img src="http://localhost:5000/calc" width="420" height="350">
+      <!-- <iframe width="420" height="350" src="//www.youtube.com/embed/9GZVbDDcW6Q" frameborder="2px"allowfullscreen style="margin-right: 30px;"></iframe> -->
     </div>
     <div class=".col-md-4 .col-md-offset-4">
                                     <h5 class="m-t-10 m-b-10">Pilih Tempat</h5>
