@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Sistem Pengenalan Wajah Berbasis Video | timhore  </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 " />
   <meta name="description" content="" />
   <meta name="author" content="" />
   <!-- styles -->
@@ -21,6 +21,10 @@
   <!-- Theme skin -->
   <link id="t-colors" rel="stylesheet" href="{{ asset('flattern/skins/default.css')}}" >  
   <link id="bodybg" rel="stylesheet" href="{{ asset('flattern/bodybg/bg1.css')}}" >  
+  <link rel="stylesheet" href="{{asset('adminlte/bower_components/Ionicons/css/ionicons.min.css')}}">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('adminlte/bower_components/font-awesome/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{asset('adminlte/dist/css/skins/_all-skins.min.css')}}">
   
   <!-- fav and touch icons -->  
   <link rel="shortcut icon" href="{{asset('flattern/img/logohore.png')}}">  
@@ -30,17 +34,15 @@
   <link rel="apple-touch-icon-precomposed" href="{{ asset('flattern/ico/apple-touch-icon-57-precomposed.png')}}">  
 
  <!--  ample dropdown -->
-    <link href="{{asset('plugins/bower_components/custom-select/custom-select.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('plugins/bower_components/switchery/dist/switchery.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('plugins/bower_components/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}" rel="stylesheet" />
-    <link href="{{asset('plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" />
-    <link href="{{asset('plugins/bower_components/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('ample/plugins/bower_components/custom-select/custom-select.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('ample/plugins/bower_components/switchery/dist/switchery.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('ample/plugins/bower_components/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('ample/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css')}}" rel="stylesheet" />
+    <link href="{{asset('ample/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('ample/plugins/bower_components/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
  <!-- ample chart -->
  <!-- Bootstrap Core CSS -->
-    
-    <!-- Morris CSS -->
-    <link href="{{asset('ample/plugins/bower_components/morrisjs/morris.css')}}" rel="stylesheet">
+  
 
  <!-- ample upload file -->
   <link rel="stylesheet" href="{{asset('ample/plugins/bower_components/dropify/dist/css/dropify.min.css')}}">

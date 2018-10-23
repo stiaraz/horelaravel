@@ -17,10 +17,8 @@
                                 <thead>
                                     <tr>
                                         <th width="70" class="text-center">#</th>
-                                        <th>NAME</th>
-                                        <th>OCCUPATION</th>
-                                        <th>EMAIL</th>
-                                        <th>ADDED</th>
+                                        <th>Gambar</th>
+                                        <th>Waktu</th>
                                         <th width="250">CATEGORY</th>
                                         <th width="300">AKSI</th>
                                     </tr>
@@ -28,166 +26,45 @@
                                 <tbody>
                                     <tr>
                                         <td class="text-center">1</td>
-                                        <td><span class="font-medium">Daniel Kristeen</span>
-                                            <br/><span class="text-muted">Texas, Unitedd states</span></td>
-                                        <td>Visual Designer
-                                            <br/><span class="text-muted">Past : teacher</span></td>
-                                        <td>daniel@website.com
-                                            <br/><span class="text-muted">999 - 444 - 555</span></td>
+                                        <td><span class="font-medium"></span>
+                                        </td>
+                                    
                                         <td>15 Mar 1988
                                             <br/><span class="text-muted">10: 55 AM</span></td>
                                         <td>
                                             <select class="form-control">
-                                                <option>Modulator</option>
-                                                <option>Admin</option>
-                                                <option>User</option>
-                                                <option>Subscriber</option>
+                                                <option>Unregister Person</option>
+                                                
                                             </select>
                                         </td>
                                         <td>
-                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"><i class="icon-phone"></i></button>
+                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"> x </button>
                                             <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="text-center">2</td>
-                                        <td><span class="font-medium">Daniel Kristeen</span>
-                                            <br/><span class="text-muted">Texas, Unitedd states</span></td>
-                                        <td>Visual Designer
-                                            <br/><span class="text-muted">Past : teacher</span></td>
-                                        <td>daniel@website.com
-                                            <br/><span class="text-muted">999 - 444 - 555</span></td>
+                                        <td><span class="font-medium"></span>
+                                        </td>
+                                    
                                         <td>15 Mar 1988
                                             <br/><span class="text-muted">10: 55 AM</span></td>
                                         <td>
                                             <select class="form-control">
-                                                <option>Modulator</option>
-                                                <option>Admin</option>
-                                                <option>User</option>
-                                                <option>Subscriber</option>
+                                                <option>Unregister Person</option>
+                                                
                                             </select>
                                         </td>
                                         <td>
-                                            <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"><i class="icon-phone"></i></button>
+                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"> x </button>
                                             <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="text-center">3</td>
-                                        <td><span class="font-medium">Daniel Kristeen</span>
-                                            <br/><span class="text-muted">Texas, Unitedd states</span></td>
-                                        <td>Visual Designer
-                                            <br/><span class="text-muted">Past : teacher</span></td>
-                                        <td>daniel@website.com
-                                            <br/><span class="text-muted">999 - 444 - 555</span></td>
-                                        <td>15 Mar 1988
-                                            <br/><span class="text-muted">10: 55 AM</span></td>
-                                        <td>
-                                            <select class="form-control">
-                                                <option>Modulator</option>
-                                                <option>Admin</option>
-                                                <option>User</option>
-                                                <option>Subscriber</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"><i class="icon-phone"></i></button>
-                                            <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">4</td>
-                                        <td><span class="font-medium">Daniel Kristeen</span>
-                                            <br/><span class="text-muted">Texas, Unitedd states</span></td>
-                                        <td>Visual Designer
-                                            <br/><span class="text-muted">Past : teacher</span></td>
-                                        <td>daniel@website.com
-                                            <br/><span class="text-muted">999 - 444 - 555</span></td>
-                                        <td>15 Mar 1988
-                                            <br/><span class="text-muted">10: 55 AM</span></td>
-                                        <td>
-                                            <select class="form-control">
-                                                <option>Modulator</option>
-                                                <option>Admin</option>
-                                                <option>User</option>
-                                                <option>Subscriber</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"><i class="icon-phone"></i></button>
-                                            <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>
-                                        </td>
-                                    </tr>
-                                     <tr>
-                                        <td class="text-center">5</td>
-                                        <td><span class="font-medium">Daniel Kristeen</span>
-                                            <br/><span class="text-muted">Texas, Unitedd states</span></td>
-                                        <td>Visual Designer
-                                            <br/><span class="text-muted">Past : teacher</span></td>
-                                        <td>daniel@website.com
-                                            <br/><span class="text-muted">999 - 444 - 555</span></td>
-                                        <td>15 Mar 1988
-                                            <br/><span class="text-muted">10: 55 AM</span></td>
-                                        <td>
-                                            <select class="form-control">
-                                                <option>Modulator</option>
-                                                <option>Admin</option>
-                                                <option>User</option>
-                                                <option>Subscriber</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"><i class="icon-phone"></i></button>
-                                            <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">6</td>
-                                        <td><span class="font-medium">Daniel Kristeen</span>
-                                            <br/><span class="text-muted">Texas, Unitedd states</span></td>
-                                        <td>Visual Designer
-                                            <br/><span class="text-muted">Past : teacher</span></td>
-                                        <td>daniel@website.com
-                                            <br/><span class="text-muted">999 - 444 - 555</span></td>
-                                        <td>15 Mar 1988
-                                            <br/><span class="text-muted">10: 55 AM</span></td>
-                                        <td>
-                                            <select class="form-control">
-                                                <option>Modulator</option>
-                                                <option>Admin</option>
-                                                <option>User</option>
-                                                <option>Subscriber</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"><i class="icon-phone"></i></button>
-                                            <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">7</td>
-                                        <td><span class="font-medium">Daniel Kristeen</span>
-                                            <br/><span class="text-muted">Texas, Unitedd states</span></td>
-                                        <td>Visual Designer
-                                            <br/><span class="text-muted">Past : teacher</span></td>
-                                        <td>daniel@website.com
-                                            <br/><span class="text-muted">999 - 444 - 555</span></td>
-                                        <td>15 Mar 1988
-                                            <br/><span class="text-muted">10: 55 AM</span></td>
-                                        <td>
-                                            <select class="form-control">
-                                                <option>Modulator</option>
-                                                <option>Admin</option>
-                                                <option>User</option>
-                                                <option>Subscriber</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"><i class="icon-phone"></i></button>
-                                            <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>
-                                           
-                                        </td>
-                                    </tr>
+                                    
+                                   
+                                    
+                                    
+                                    
                                 </tbody>
                             </table>
                         </div>
