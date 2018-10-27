@@ -1,21 +1,27 @@
 @extends('layouts.index')
 @section('aktifdet')
 					<li><a href="{{route('home')}}">HOME</i></a></li>
-					<li ><a href="{{url('/grafik')}}">GRAFIK</a></li>
+					<li ><a href="{{url('/rekap')}}">REKAPITULASI</a></li>
                     <li class="dropdown active"><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li><a href="{{url('/notif')}}">NOTIFIKASI</a></li>
+                    <li><a href="{{url('/logdetail')}}">DETAIL LOG</a></li>
 @endsection
 
  @section ('det')
- <link rel="stylesheet" href="{{ asset("/adminlte/bower_components/datatables/dataTables.bootstrap.css") }}" >
+ <link rel="stylesheet" href="{{ asset('adminlte/bower_components/datatables/dataTables.bootstrap.css') }}" >
 <div class="container col-lg-8">
                     <div class="col-lg-12">
                         <div class="white-box">
                             <h3 class="box-title">Detail Rekaman</h3>
-                            <div class="col-lg-10"> 
+                            <div class="col-lg-8"> 
                                 <div id="datepicker"></div>
                                 <input type="hidden" id="hidden_input" value="" name="waktu">
                             </div>
+                            <div class="col-lg-8">
+                            	<select class="form-control">
+                            					<option>All</option>
+                                                <option>Unregister Person</option>
+                                                <option>Register Person</option>
+                                </select>
                             <br>
                             <table id="example1" class="table table-striped table-bordered" >
                                 <thead>
@@ -25,6 +31,8 @@
                                         <th>Nama</th>
                                         <th>Time</th>
                                         <th>Tempat</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,9 +48,12 @@
 
                                 @endfor -->
                                     
-
+                                <!-- <td>
+                                     <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5">Lapor</button>
+                                      <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5">Terima</button>
+                                </td> -->
                                 </tbody>
-                                <tfoot>
+                                <!-- <tfoot>
                                     <tr>
                                         <th>No</th>
                                         <th>Gambar</th>
@@ -50,7 +61,7 @@
                                         <th>Time</th>
                                         <th>Tempat</th>
                                     </tr>
-                                </tfoot>
+                                </tfoot> -->
                             </table>
                         </div>
                     </div>

@@ -1,9 +1,9 @@
 @extends('layouts.index')
 @section('aktifhome')
                     <li class="dropdown active"><a href="{{route('home')}}">HOME</i></a></li>
-                    <li><a href="{{url('/grafik')}}">GRAFIK</a></li>
+                    <li><a href="{{url('/rekap')}}">REKAPITULASI</a></li>
                     <li><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li><a href="{{url('/notif')}}">NOTIFIKASI</a></li>
+                    <li><a href="{{url('/logdetail')}}">DETAIL LOG</a></li>
 @endsection
 @section('content')
 <div class="container">

@@ -2,16 +2,20 @@
 
 @section('aktifnotif')
 					<li><a href="{{route('home')}}">HOME</i></a></li>
-					<li ><a href="{{url('/grafik')}}">GRAFIK</a></li>
+					<li ><a href="{{url('/rekap')}}">REKAPITULASI</a></li>
                     <li><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li class="dropdown active"><a href="{{url('/notif')}}">NOTIFIKASI</a></li>
+                    <li class="dropdown active"><a href="{{url('/logdetail')}}">DETAIL LOG</a></li>
 @endsection
  @section ('notif')
 <div class="container">
 	
 	<div class="col-md-12">
                     <div class="panel">
-                        <div class="panel-heading">NOTIFIKASI</div>
+                        <div class="panel-heading">DETAIL LOG</div>
+                        <div class="col-lg-10"> 
+                                <div id="datepicker"></div>
+                                <input type="hidden" id="hidden_input" value="" name="waktu">
+                         </div>
                         <div class="table-responsive">
                             <table class="table table-hover manage-u-table">
                                 <thead>
@@ -19,8 +23,9 @@
                                         <th width="70" class="text-center">#</th>
                                         <th>Gambar</th>
                                         <th>Waktu</th>
-                                        <th width="250">CATEGORY</th>
-                                        <th width="300">AKSI</th>
+                                        <th width="250">Kategori</th>
+                                        <th width="300">Aksi</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,8 +43,8 @@
                                             </select>
                                         </td>
                                         <td>
-                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"> x </button>
-                                            <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>
+                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"> Lapor </button>
+                                            <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5">Terima</i></button>
                                         </td>
                                     </tr>
                                     <tr>
@@ -56,14 +61,10 @@
                                             </select>
                                         </td>
                                         <td>
-                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"> x </button>
-                                            <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>
+                                             <button type="button" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5">Lapor</button>
+                                            <button type="button" class="btn btn-success btn-outline btn-circle btn-lg m-r-5">Terima</i></button>
                                         </td>
                                     </tr>
-                                    
-                                   
-                                    
-                                    
                                     
                                 </tbody>
                             </table>

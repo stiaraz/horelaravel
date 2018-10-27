@@ -76,7 +76,7 @@
             <ul>
              <li style="margin: 0px 0px 0px 0px"><h4><strong> timhore | Kota Cerdas </strong></h4></li>
               <li style="margin bottom:  0px; font-size: 16px;">Gemastik 11</li>
-              <img src="{{asset('flattern/img/itshitam.png')}}" style="margin-bottom: 0px; margin-top: 0px; background-position: relative; height: 100px;width: 250px;">
+              <img src="{{asset('flattern/img/itsputih.png')}}" style="margin-bottom: 0px; margin-top: 0px; background-position: relative; height: 100px;width: 250px;">
             </ul>
           </div>
         </div>
@@ -325,22 +325,31 @@
         <div class="row" style="color: white;">
           <div class="span3">
            <!--  @yield('kategori') -->
+           <div class="widget">
+           <img src="{{asset('flattern/img/itsputih.png')}}" style="margin-bottom: 10px; margin-top: 0px; background-position: relative; height: 100px;width: 175px;">
+           <h5 class="widgetheading">Supported by</h5>
+           <img src="{{asset('flattern/img/Picture3.png')}}" style="margin-bottom: 0px; margin-top: 0px; background-position: relative; height: 75px;width: 100px;">
+          </div>
           </div>
           <div class="span5">
             <div class="widget">
-              <h5 class="widgetheading" style="text-align: center">Our Location</h5>
-              <div id="google-map" data-latitude="-7.282373" data-longitude="112.794897" style="background-color: white;opacity: 1; "></div>
+              <h5 class="widgetheading" style="text-align: center">Lokasi</h5>
+              <div id="google-map" data-latitude="-7.282373" data-longitude="112.794897" style="background-color: white;opacity: 1; margin-right: 5px;"></div>
             </div>
           </div>
-          <div class="span3">
+          <div class="span3" style="margin-left: 45px;">
             <div class="widget">
-              <h5 class="widgetheading">Get in touch with us</h5>
+              <h5 class="widgetheading">Anggota</h5>
               <address>
-                <strong>Member</strong><br>
-                 <li>Andreas Galang</li><li>Luqman Ahmad</li><li>Syavira T Z</li>
+                <li style="font-size: 16px;">Andreas Galang A</li><li style="font-size: 16px;">Luqman Ahmad</li><li style="font-size: 16px;">Syavira Tiara Z</li>
+              </address>
+              <h5 class="widgetheading">Pembimbing</h5>
+              <address>
+                 <p>Dr.Eng. Nanik Suciati, S.Kom., M.Kom</p>
+                 
               </address>
               <p>
-                <i class="icon-envelope-alt"></i>https://if.its.ac.id/
+                <i class="icon-envelope-alt"></i>https://gemastik.its.ac.id/
               </p>
             </div>
           </div>
@@ -361,7 +370,7 @@
                     Licensing information: https://bootstrapmade.com/license/
                     Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Flattern
                   -->
-                  Powered by <a href="https://if.its.ac.id/">TimHore Informatics ITS</a>
+                  20002002_5114100187 <a href="https://gemastik.its.ac.id/">Gemastik Kota Cerdas</a>
                 </div>
               </div>
             </div>

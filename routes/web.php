@@ -19,8 +19,8 @@ Route::get('/', 'IndexController@index')->name('index');
 Auth::routes();
 
 Route::get('/home', 'IndexController@home')->name('home');
-Route::get('/grafik', 'IndexController@grafik');
-Route::get('/notif', 'IndexController@notif');
+Route::get('/rekap', 'IndexController@grafik');
+Route::get('/logdetail', 'IndexController@notif');
 Route::get('/detail', 'RecogController@detail');
 Route::post('/detail_change', 'RecogController@detail_change');
 

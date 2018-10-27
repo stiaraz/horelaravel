@@ -3,9 +3,9 @@
 @extends('layouts.index')
 @section('aktifgraf')
 					<li><a href="{{route('home')}}">HOME</i></a></li>
-					<li class="dropdown active"><a href="{{url('/grafik')}}">GRAFIK</a></li>
+					<li class="dropdown active"><a href="{{url('/rekap')}}">REKAPITULASI</a></li>
                     <li><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li><a href="{{url('/notif')}}">NOTIFIKASI</a></li>
+                    <li><a href="{{url('/logdetail')}}">DETAIL LOG</a></li>
 @endsection
 
 @section ('graf')
@@ -16,7 +16,7 @@
             <div class="box-header with-border">
               <!-- <i class="fa fa-bar-chart-o"></i> -->
 
-              <h3 class="box-title">Bar Chart</h3>
+              <h3 class="box-title">Grafik Rekapitulasi</h3>
 
              <!--  <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
