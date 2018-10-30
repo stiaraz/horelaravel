@@ -3,27 +3,25 @@
 					<li><a href="{{route('home')}}">HOME</i></a></li>
 					<li ><a href="{{url('/grafik')}}">GRAFIK</a></li>
                     <li class="dropdown active"><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li><a href="{{url('/absen')}}">ABSEN</a></li>
-@endsection
+                    <li><a href="{{url('/notif')}}">NOTIFIKASI</a></li>
+                    <li><a href="{{url('/absen')}}">ABSEN</a></li>@endsection
 
  @section ('det')
- <link rel="stylesheet" href="{{ asset("/adminlte/bower_components/datatables/dataTables.bootstrap.css") }}" >
+ <link rel="stylesheet" href="{{ asset('adminlte/bower_components/datatables/dataTables.bootstrap.css') }}" >
 <div class="container col-lg-8">
                     <div class="col-lg-12">
                         <div class="white-box">
                             <h3 class="box-title">Detail Rekaman</h3>
-                            <div class="col-lg-6"> 
-                                <div id="datepicker"></div>
+							<div class="col-lg-6">                                 <div id="datepicker"></div>
                                 <input type="hidden" id="hidden_input" value="" name="waktu">
                             </div>
-                            <div class="col-lg-4">
+							<div class="col-lg-4">
                                 <select id="opt" name="opt">
                                     <option value="0">All</option>
                                     <option value="1">Dikenali</option>
                                     <option value="2">Tidak Dikenali</option>
                                 </select>
-                            </div>
-                            <br>
+                            </div>                            <br>
 
                             <table id="example1" class="table table-striped table-bordered" >
                                 <thead>
@@ -34,12 +32,11 @@
                                         <th>Nama</th>
                                         <th>Time</th>
                                         <th>Tempat</th>
-                                        <th>Action</th>
-                                    </tr>
+										<th>Action</th>                                    </tr>
                                 </thead>
                                 <tbody>
                                 </tbody>
-                                <tfoot>
+                                <!-- <tfoot>
                                     <tr>
                                         <th>ID</th>
                                         <th>No</th>
@@ -49,7 +46,7 @@
                                         <th>Tempat</th>
                                         <th>Action</th>
                                     </tr>
-                                </tfoot>
+                                </tfoot> -->
                             </table>
                         </div>
                     </div>

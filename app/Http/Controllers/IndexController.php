@@ -22,14 +22,14 @@ class IndexController extends Controller
     {
         if (!Auth::check())
             return Redirect::to('/');
-    	return view ('graf');
+    	return view ('rekap');
     }
 
     public function notif()
     {
         if (!Auth::check())
             return Redirect::to('/');
-    	return view ('notif');
+    	return view ('logdetail');
     }
 
     public function det()

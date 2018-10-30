@@ -3,10 +3,10 @@
 @extends('layouts.index')
 @section('aktifgraf')
 					<li><a href="{{route('home')}}">HOME</i></a></li>
-					<li class="dropdown active"><a href="{{url('/grafik')}}">GRAFIK</a></li>
+					<<li class="dropdown active"><a href="{{url('/grafik')}}">GRAFIK</a></li>
                     <li><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li><a href="{{url('/absen')}}">ABSEN</a></li>
-@endsection
+                    <li><a href="{{url('/notif')}}">NOTIFIKASI</a></li>
+                    <li><a href="{{url('/absen')}}">ABSEN</a></li>@endsection
 
 @section ('graf')
 
