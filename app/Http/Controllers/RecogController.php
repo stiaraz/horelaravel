@@ -123,11 +123,25 @@ class RecogController extends Controller
     }
 
     public function change_status(){
-
+        $id = Input::get('id');
+        $raw ="UPDATE RECOGNITION SET status=1 WHERE id=".$id;
+        $result = DB::update(Db::raw($raw));
+        return response()->json($result);
     }
 
     public function send_alert(){
 
     }
-    
+
+
+    public function send_alert_detail(){
+        $tempat = Input::get('tempat');
+        $waktu = Input::get('waktu');
+        $pesan ="Terdeteksi seseorang yang tidak teridentifikasi oleh sistem pada ".$waktu." di ".$tempat.", mohon segera ditindaklanjuti";
+        $pesan_enc = urlencode($pesan);
+        $send_msg = "https://reguler.zenziva.net/apps/smsapi.php?userkey=061un3&passkey=r3rooyrl9z&nohp=081331006457&pesan=".$pesan_enc;
+        // $send_msg = "https://reguler.zenziva.net/apps/smsapi.php?userkey=061un3&passkey=r3rooyrl9z&nohp=08165468409&pesan=".$pesan_enc;
+        $url = file_get_contents($send_msg);
+        return response()->json($url);
+    }
 }

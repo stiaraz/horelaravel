@@ -5,30 +5,52 @@
 
  		<!-- <p><strong>PT PLN APP Surabaya</strong>&nbsp;| JL. Ketintang Baru No 9 Surabaya 60231</p> -->
     <div class="container">
-        <div class=".col-md-6">
-      <img src="http://10.151.33.16:5000/calc" width="640" height="480">
+        <div id="parent_cam" class=".col-md-6">
+            <!-- <img id="cam_0" src="http://10.151.33.16:5000/calc" width="640" height="480"> -->
       <!-- <iframe width="420" height="350" src="//www.youtube.com/embed/9GZVbDDcW6Q" frameborder="2px"allowfullscreen style="margin-right: 30px;"></iframe> -->
     </div>
     <div class=".col-md-4 .col-md-offset-4">
                                     <h5 class="m-t-10 m-b-10">Pilih Tempat</h5>
-                                    <select class="selectpicker" data-style="form-control">
+                                    <select id="camera" class="" data-style="form-control">
                                         <optgroup label="Lokasi Informatika">
-                                            <option>KCV</option>
-                                            <option>Plasa Lama</option>
+                                            <option value="0">KCV</option>
+                                            <option value="1">Lokal</option>
                                             
                                         </optgroup>
-                                        <optgroup label="Luar Informatika">
-                                            <option>Parkiran</option>
-                                            <option>parkiran Motor</option>
-                                            
-                                        </optgroup>
+
                                     </select>
-                                    <button class="btn btn-success btn-rounded" type="submit">Submit</button>
+                                    <button id="ch_camera" class="btn btn-success btn-rounded" type="submit">Submit</button>
                                 </div>
   
 </div>
 </section>
+<script type="text/javascript">
+    $(function () {
+        $('#ch_camera').click(function(){
+            if ($('#camera').val()==1)
+            {
+                if($('#cam_0').length>0)
+                {
+                    $('#cam_0').remove();
+                    var txt1 = '<img id="cam_1" src="" width="640" height="480">';
+                    $("#parent_cam").append(txt1);
+                }
+            }
+            else if ($('#camera').val()==0)
+            {
+                if($('#cam_1').length>0)
+                {
+                    $('#cam_1').remove();
+                    var txt1 = '<img id="cam_0" src="http://10.151.33.16:5000/calc" width="640" height="480">';
+                    $("#parent_cam").append(txt1);
+                }
+            }
+            
+            // alert('sss');
 
+        });
+    });
+</script>
 
 @endsection
 

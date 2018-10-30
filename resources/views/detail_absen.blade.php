@@ -48,12 +48,12 @@
             success: function(d){
                 
                 var now = new Date();
-                now.setDate(now.getDate())
+                now.setDate(now.getDate()-1)
                 var daysOfYear = [];
                 var count=0;
                 // console.log(now.getDay());
                 var dump=[];
-                for (var i = new Date('2018-08-01'); i <= now; i.setDate(i.getDate() + 1)) {
+                for (var i = new Date('2018-08-01'); i < now; i.setDate(i.getDate() + 1)) {
                     // daysOfYear.push(new Date(i));
                     if(i.getDay() > 0 && i.getDay() < 6)
                     {
@@ -105,7 +105,7 @@
                     header: {
                         left: 'prev,next today',
                         center: 'title',
-                        right: 'month,basicWeek,basicDay'
+                        right: 'month,basicWeek'
                     },
                     businessHours:true,
                     editable: true,

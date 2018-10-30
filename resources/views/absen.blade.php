@@ -32,14 +32,14 @@
 
                                     @endfor
                                 </tbody>
-                                <tfoot>
+                                <!-- <tfoot>
                                     <tr>
                                         <th>No</th>
                                         <th>Gambar</th>
                                         <th>Nama</th>
 
                                     </tr>
-                                </tfoot>
+                                </tfoot> -->
                             </table>
                             
                         </div>

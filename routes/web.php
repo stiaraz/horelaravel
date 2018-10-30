@@ -20,10 +20,13 @@ Auth::routes();
 
 Route::get('/home', 'IndexController@home')->name('home');
 Route::get('/grafik', 'IndexController@grafik');
-Route::get('/absen', 'Absensi@absen');Route::get('/detail', 'RecogController@detail');
+Route::get('/absen', 'Absensi@absen');
+Route::get('/detail', 'RecogController@detail');
 Route::post('/detail_change', 'RecogController@detail_change');
 Route::post('/graf_change', 'RecogController@graf_change')->name('graf');
 
 Route::get('/absen/{id}', 'Absensi@detail_absen');
 Route::post('/detail_tgl', 'Absensi@detail_tgl');
 
+Route::post('/alert_detail', 'RecogController@send_alert_detail');
+Route::post('/change_status', 'RecogController@change_status');

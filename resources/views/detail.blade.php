@@ -3,8 +3,8 @@
 					<li><a href="{{route('home')}}">HOME</i></a></li>
 					<li ><a href="{{url('/grafik')}}">GRAFIK</a></li>
                     <li class="dropdown active"><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li><a href="{{url('/notif')}}">NOTIFIKASI</a></li>
-                    <li><a href="{{url('/absen')}}">ABSEN</a></li>@endsection
+                    <li><a href="{{url('/absen')}}">ABSEN</a></li>
+@endsection
 
  @section ('det')
  <link rel="stylesheet" href="{{ asset('adminlte/bower_components/datatables/dataTables.bootstrap.css') }}" >
@@ -21,7 +21,8 @@
                                     <option value="1">Dikenali</option>
                                     <option value="2">Tidak Dikenali</option>
                                 </select>
-                            </div>                            <br>
+                            </div>                            
+                            <br>
 
                             <table id="example1" class="table table-striped table-bordered" >
                                 <thead>
@@ -32,7 +33,8 @@
                                         <th>Nama</th>
                                         <th>Time</th>
                                         <th>Tempat</th>
-										<th>Action</th>                                    </tr>
+										<th>Action</th>                                    
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 </tbody>
@@ -108,15 +110,36 @@
 
             $('#example1 tbody').on( 'click', '.btn-danger', function () {
                 var data = table.row( $(this).parents('tr') ).data();
-                // alert( $(this).val());
-                alert(data[0]);
+                $.ajax({
+                    url: '/alert_detail',
+                    type: 'post',
+                    data: {
+                        tempat: data[5],
+                        waktu: data[4],
+                    },
+                    success: function(d){
+                        alert('Pesan terkirim kepada petugas keamanan');
+                    }
+                });
+                // alert(data[0]);
             } );
 
             $('#example1 tbody').on( 'click', '.btn-success', function () {
                 var data = table.row( $(this).parents('tr') ).data();
-                // alert( $(this).val());
-                alert(data[0]);
-            } );
+                $.ajax({
+                    url: '/change_status',
+                    type: 'post',
+                    data: {
+                        id: data[0],
+                    },
+                    success: function(d){
+                        alert('Status orang tersebut sudah terkonfirmasi aman');
+                        table.ajax.reload(null,false);
+                    }
+
+                });
+
+            });
 
             $('#hidden_input').change(function(){
                 table.ajax.reload(null,false)
