@@ -31,6 +31,7 @@ class IndexController extends Controller
             return Redirect::to('/');
     	return view ('notif');
     }
+
     public function det()
     {
         if (!Auth::check())

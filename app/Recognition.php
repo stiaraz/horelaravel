@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Recognition extends Model
 {
-    protected $table = 'Recognition';
+    protected $table = 'recognition';
     protected $primaryKey ='id'; 
     public $incrementing=true;
+    public $timestamps = false;
     protected $fillable =[
     	'id',
     	'tempat',

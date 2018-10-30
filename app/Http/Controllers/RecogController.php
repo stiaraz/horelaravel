@@ -6,10 +6,12 @@ use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Redirect;
+use Auth;
 
 class RecogController extends Controller
 {
-    public function getData(Request $request){
+    public function RecvData(Request $request){
     	$tempat = Input::get('tempat');
     	$status = Input::get('status');
     	$nama = Input::get('nama');
@@ -36,6 +38,10 @@ class RecogController extends Controller
 
 
     public function detail(){
+
+    	if (!Auth::check())
+            return Redirect::to('/');
+
     	$waktu = '2018-10-23';
     	$raw ="SELECT id,foto,nama,waktu,tempat FROM recognition WHERE waktu='".$waktu."'";
     	// $raw ="SELECT id,foto,nama,waktu,tempat FROM recognition WHERE waktu BETWEEN '2018-10-23 00' AND '2018-10-23 23:59:59'";
@@ -55,12 +61,16 @@ class RecogController extends Controller
 
     public function detail_change(){
     	$waktu = Input::get('waktu');
-    	// $waktu = '2018-10-23';
-    	// $raw ="SELECT * FROM recognition WHERE waktu='".$waktu."'";
-    	// $result = DB::select(Db::raw($raw));
-    	// $raw ="SELECT * FROM recognition";
-    	// $result = DB::select(Db::raw($raw));
-    	$raw ="SELECT id,foto,nama,waktu,tempat FROM recognition WHERE waktu BETWEEN '".$waktu." 00' AND '".$waktu." 23:59:59'";
+        $opt = Input::get('opt');
+        if ($opt==0) {
+            $raw ="SELECT id,'no',foto,nama,waktu,tempat, status FROM recognition WHERE waktu BETWEEN '".$waktu." 00' AND '".$waktu." 23:59:59'";
+        } elseif ($opt==1) {
+            $raw ="SELECT id,'no',foto,nama,waktu,tempat, status FROM recognition WHERE waktu BETWEEN '".$waktu." 00' AND '".$waktu." 23:59:59' AND status=1";
+        } 
+        else{
+            $raw ="SELECT id,'no',foto,nama,waktu,tempat, status FROM recognition WHERE waktu BETWEEN '".$waktu." 00' AND '".$waktu." 23:59:59' AND status=2";
+        }
+        
 
     	$result = DB::select(Db::raw($raw));
     	// dd($result);
@@ -70,13 +80,20 @@ class RecogController extends Controller
     		$row =array();
     		$count =0;
     		foreach ($value as $key2 => $value2) {
-    			if ($count==0) {
+    			if ($count==1) {
     				$row[]=$count2;
     			}
-    			elseif ($count==1){
+    			elseif ($count==2){
     				$value_foto =asset("storage/files/".$value2);
     				$row[]="<img style='height:100px; width:100px' src=".$value_foto.">";
     			}
+                elseif($count==6){
+                    if ($value2==2) {
+                        $row[]='<button type="button" id="discard" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"> x </button>
+                        <button type="button" id="acc" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>';
+                    }
+                    else $row[]='--';
+                }
     			else 
     				$row[]=$value2;
     			$count++;
@@ -91,4 +108,26 @@ class RecogController extends Controller
     	return response()->json($arr);
     }
 
+    public function graf_change(){
+    	$start = Input::get('start');
+    	$end = Input::get('end');
+
+    	// $waktu = '2018-10-23';
+    	// $end = '2018-10-24';
+
+    	$raw ="SELECT DATE(waktu) as tgl, SUM(status=1) as dikenali, SUM(status=2) as tidak_dikenali
+    	FROM recognition WHERE waktu >='".$start."' AND waktu < '".$end." 23:59:59' GROUP by DATE(waktu)";
+
+		$result = DB::select(Db::raw($raw));
+    	return response()->json($result);
+    }
+
+    public function change_status(){
+
+    }
+
+    public function send_alert(){
+
+    }
+    
 }

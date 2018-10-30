@@ -58,6 +58,7 @@
   
   <!-- Date picker plugins css -->
   <link href="{{asset('ample/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{asset('adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet" type="text/css" />
 
   <!-- data tables -->
   <link href="{{asset('ample/plugins/bower_components/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css" />
@@ -406,7 +407,7 @@
   <script src="{{asset('ample/plugins/bower_components/calendar/jquery-ui.min.js')}}"></script>
   <script src="{{asset('ample/plugins/bower_components/moment/moment.js')}}"></script>
   <script src="{{asset('ample/plugins/bower_components/calendar/dist/fullcalendar.min.js')}}"></script>
-  <script src="{{asset('ample/plugins/bower_components/calendar/dist/jquery.fullcalendar.js')}}"></script>
+  <!--<script src="{{asset('ample/plugins/bower_components/calendar/dist/jquery.fullcalendar.js')}}"></script>-->
   <!--<script src="{{asset('ample/plugins/bower_components/calendar/dist/cal-init.js')}}"></script>  -->
   <!-- google maps -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_QRkSebrTMlwTo872afIbMoQ8cSbLyDI"></script>
@@ -469,7 +470,7 @@
     <script src="{{asset('ample/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
     <!-- Date range Plugin JavaScript -->
     <script src="{{asset('ample/plugins/bower_components/timepicker/bootstrap-timepicker.min.js')}}"></script>
-    <script src="{{asset('ample/plugins/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{asset('adminlte/bower_components/bootstrap-daterangepicker/daterangepicker.min.js')}}"></script>
     
 <!-- DATA TABEL -->
     <script src="{{asset('ample/js/custom.min.js')}}"></script>

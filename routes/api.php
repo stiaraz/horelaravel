@@ -17,4 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/getData', 'RecogController@getData')->name('getData');
+Route::post('/RecvData', 'RecogController@RecvData')->name('RecvData');

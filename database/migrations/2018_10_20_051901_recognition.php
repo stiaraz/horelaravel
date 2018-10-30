@@ -21,6 +21,18 @@ class Recognition extends Migration
             $table->string('foto');
             $table->integer('status');
         });
+
+        Schema::create('listanggota', function (Blueprint $table){
+            $table->increments('no');
+            $table->bigInteger('id')->unique();
+            $table->string('nama');
+        });
+
+        Schema::create('absen', function (Blueprint $table){
+            $table->increments('no');
+            $table->bigInteger('id');
+            $table->date('tanggal');
+        });
     }
 
     /**
@@ -31,5 +43,7 @@ class Recognition extends Migration
     public function down()
     {
         Schema::dropIfExists('Recognition');
+        Schema::dropIfExists('listanggota');
+         Schema::dropIfExists('absen');
     }
 }

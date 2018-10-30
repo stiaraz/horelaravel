@@ -5,7 +5,7 @@
 					<li><a href="{{route('home')}}">HOME</i></a></li>
 					<li class="dropdown active"><a href="{{url('/grafik')}}">GRAFIK</a></li>
                     <li><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li><a href="{{url('/notif')}}">NOTIFIKASI</a></li>
+                    <li><a href="{{url('/absen')}}">ABSEN</a></li>
 @endsection
 
 @section ('graf')
@@ -13,10 +13,15 @@
 		
     		<div class="col-md-6 container">
              <div class="box box-primary">
+              <h3 class="box-title">Bar Chart</h3>
             <div class="box-header with-border">
               <!-- <i class="fa fa-bar-chart-o"></i> -->
-
-              <h3 class="box-title">Bar Chart</h3>
+              <div class="col-lg-12"> 
+                  <input type="text" id="datepicker" name="dates" class="form-control">
+                  <input type="hidden" id="start_input" value="" name="start">
+                  <input type="hidden" id="end_input" value="" name="end">
+              </div>
+             
 
              <!--  <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -25,7 +30,7 @@
               </div> -->
             </div>
             <div class="box-body ">
-              <canvas id="myChart" width="400" height="400"></canvas>
+              <canvas id="myChart" style="width:200,height:200" width="200" height="200"></canvas>
               <!-- <div id="bar-chart" style="height: 300px;"></div> -->
             </div>
             <!-- /.box-body-->
@@ -55,40 +60,42 @@
 <script type="text/javascript" src="{{asset('adminlte/bower_components/chart.js/dist/Chart.min.js')}}"></script>
 
 <script type="text/javascript">
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: 'Dikenali',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        },{
-            label: 'Tidak dikenali',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
+  $(function () {
+
+    $.ajaxSetup({  
+       headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    var chartdata={
+      labels: [],
+      datasets:[{
+        label : 'Dikenali',
+        backgroundColor:'#1c6bea',
+        borderColor: 'rgba(200, 200, 200, 0.75)',
+        // hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+        hoverBorderColor: 'rgba(200, 200, 200, 1)',
+        data: []
+      },
+      {
+        label : 'Tidak Dikenali',
+        backgroundColor:'#ad0808',
+        borderColor: 'rgba(200, 200, 200, 0.75)',
+        // hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+        hoverBorderColor: 'rgba(200, 200, 200, 1)',
+        data: []
+      }]
+    };
+
+    var ctxz = $('#myChart')[0].getContext('2d');
+    ctxz.canvas.width =1000;
+    ctxz.canvas.height =400;
+    var barGraph = new Chart(ctxz, {
+      type: 'bar',
+      data: chartdata,
+      options: {
+        responsive: true,
         scales: {
             yAxes: [{
                 ticks: {
@@ -96,8 +103,56 @@ var myChart = new Chart(ctx, {
                 }
             }]
         }
-    }
-});
+      }
+    });
+
+
+
+    $('#datepicker').daterangepicker({
+      "maxSpan": {
+        "days": 30
+      }
+    },
+      function(start, end, label) {
+        $('#start_input').val(start.format('YYYY-MM-DD'));
+        $('#end_input').val(end.format('YYYY-MM-DD'));
+        $.ajax({
+          url: '/graf_change',
+          type: 'POST',
+          dataType: 'json',
+          data: {
+            start: start.format('YYYY-MM-DD'),
+            end: end.format('YYYY-MM-DD')
+          },
+          success: function(d){
+            console.log(d);
+            var tgl=[];
+            var dikenali=[];
+            var tdkdikenali=[];
+            for (var i in d){
+              tgl.push(d[i].tgl);
+              dikenali.push(d[i].dikenali);
+              tdkdikenali.push(d[i].tidak_dikenali);
+            }
+
+            barGraph.config.data.labels = tgl;
+            barGraph.config.data.datasets[0].data =dikenali;
+            barGraph.config.data.datasets[1].data =tdkdikenali;
+            barGraph.update();
+            // console.log(chartdata);
+          }
+
+        });
+      }
+    );
+    
+  });
+  
+
+
+
+// var ctx = document.getElementById("myChart").getContext('2d');
+
 // 	$(function () {
 // 	var bar_data = {
 //       data : [['January', 10], ['February', 8], ['March', 4], ['April', 13], ['May', 17], ['June', 9]],

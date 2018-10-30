@@ -3,7 +3,7 @@
 					<li><a href="{{route('home')}}">HOME</i></a></li>
 					<li ><a href="{{url('/grafik')}}">GRAFIK</a></li>
                     <li class="dropdown active"><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li><a href="{{url('/notif')}}">NOTIFIKASI</a></li>
+                    <li><a href="{{url('/absen')}}">ABSEN</a></li>
 @endsection
 
  @section ('det')
@@ -12,43 +12,42 @@
                     <div class="col-lg-12">
                         <div class="white-box">
                             <h3 class="box-title">Detail Rekaman</h3>
-                            <div class="col-lg-10"> 
+                            <div class="col-lg-6"> 
                                 <div id="datepicker"></div>
                                 <input type="hidden" id="hidden_input" value="" name="waktu">
                             </div>
+                            <div class="col-lg-4">
+                                <select id="opt" name="opt">
+                                    <option value="0">All</option>
+                                    <option value="1">Dikenali</option>
+                                    <option value="2">Tidak Dikenali</option>
+                                </select>
+                            </div>
                             <br>
+
                             <table id="example1" class="table table-striped table-bordered" >
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>No</th>
                                         <th>Gambar</th>
                                         <th>Nama</th>
                                         <th>Time</th>
                                         <th>Tempat</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                <!-- @for ($i=0; $i<count($result);$i++)
-                                    <tr id="1" class="gradeX">
-                                        <td>{{ $i+1 }}</td>
-                                        <td><img style="height:100px; width:100px " src="{{asset('storage/files/galang.jpg') }}"></td>
-                                        <td>{{ $result[$i]->nama }}</td>
-                                        <td class="center">{{ $result[$i]->waktu }}</td>
-                                        <td class="center">{{ $result[$i]->tempat }}</td>
-                                    </tr>
-
-                                @endfor -->
-                                    
-
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th>ID</th>
                                         <th>No</th>
                                         <th>Gambar</th>
                                         <th>Nama</th>
                                         <th>Time</th>
                                         <th>Tempat</th>
+                                        <th>Action</th>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -87,42 +86,44 @@
                 }
             });
             var table= $("#example1").DataTable({
-                // ajaxSetup:{  
-                //    headers: {
-                //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                //     }
-                // },
-                ajax:{
+                "ajax":{
                     "url": '/detail_change',
                     "type": "POST",
                     "data": function(data){
                         data.waktu =  $('#hidden_input').val();
+                        data.opt = $('#opt').val();
                     }
                 },
+                "deferRender": true,
+                "destroy":true,
+                "columnDefs": [
+                {
+                    "targets":[0],
+                    "visible":false,
+                    "searchable":false
+                }]
                 
             });
+
+            $('#opt').change(function(){
+                table.ajax.reload(null,false)
+            });
+
+            $('#example1 tbody').on( 'click', '.btn-danger', function () {
+                var data = table.row( $(this).parents('tr') ).data();
+                // alert( $(this).val());
+                alert(data[0]);
+            } );
+
+            $('#example1 tbody').on( 'click', '.btn-success', function () {
+                var data = table.row( $(this).parents('tr') ).data();
+                // alert( $(this).val());
+                alert(data[0]);
+            } );
 
             $('#hidden_input').change(function(){
                 table.ajax.reload(null,false)
             });
-            // $('#hidden_input').change((function(){
-            //     $.ajaxSetup({
-            //        headers: {
-            //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            //         }
-            //     });
-            //     $("#example1").DataTable({
-            //         ajax:{
-            //             "url": '/detail_change',
-            //             "type": "POST",
-            //             "data":'waktu='+$('#hidden_input').val(),
-            //             "success":function(data){
-            //               console.log(data);
-            //            }
-            //         },
-            //     });
-            // }));
-
             
 
         });
