@@ -3,7 +3,7 @@
 @section('aktifnotif')
 					<li><a href="{{route('home')}}">HOME</i></a></li>
 					<li ><a href="{{url('/rekap')}}">REKAPITULASI</a></li>
-                    <li><a href="{{url('/detail')}}">DETAIL</a></li>
+                    <li><a href="{{url('/detail')}}">DETAIL PENGENALAN</a></li>
                     <li class="dropdown active"><a href="{{url('/logdetail')}}">DETAIL LOG</a></li>
 @endsection
  @section ('notif')

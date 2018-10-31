@@ -2,19 +2,27 @@
 
 @section('aktifnotif')
 					<li><a href="{{route('home')}}">HOME</i></a></li>
-					<li ><a href="{{url('/grafik')}}">GRAFIK</a></li>
-                    <li><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li class="dropdown active"><a href="{{url('/absen')}}">ABSEN</a></li>
+					<!-- <li ><a href="{{url('/grafik')}}">GRAFIK</a></li> -->
+                    <li><a href="{{url('/detail')}}">DETAIL PENGENALAN</a></li>
+                    <li class="dropdown active"><a href="{{url('/absen')}}">KEHADIRAN</a></li>
 @endsection
  @section ('notif')
+ 
 <div class="container">
 	
 	<div class="col-md-12">
                     <div class="panel">
-                        <h3 class="box-title">DETAIL ABSEN</h3>
+                        <h3 class="box-title">DETAIL KEHADIRAN</h3>
                         <div class="panel-heading"></div>
                             <input type="hidden" id="input_id" value="{{$id}}">
-                        <div id='calendar'></div>
+                        <div id="external-events" class="span 4">
+                            <h5>Keterangan</h5>
+                            <div style="background-color:#fdadb4;color:#000000;border:#bfe9c2;line-height:2" class="fc-event ui-draggable ui-draggable-handle">&nbsp Tidak Hadir</div>
+                            <br>
+                            <div style="background-color:#bfe9c2;color:#000000;border:#bfe9c2;line-height:2" class="fc-event ui-draggable ui-draggable-handle">&nbsp Hadir</div>
+                            <br>
+                        </div>
+                        <div id='calendar' class="span8"></div>
 
                     </div>
                 </div>

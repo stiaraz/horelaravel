@@ -61,14 +61,15 @@ class RecogController extends Controller
 
     public function detail_change(){
     	$waktu = Input::get('waktu');
+        $waktu2 = Input::get('waktu2');
         $opt = Input::get('opt');
         if ($opt==0) {
-            $raw ="SELECT id,'no',foto,nama,waktu,tempat, status FROM recognition WHERE waktu BETWEEN '".$waktu." 00' AND '".$waktu." 23:59:59'";
+            $raw ="SELECT id,'no',foto,nama,waktu,tempat, status FROM recognition WHERE waktu BETWEEN '".$waktu." 00' AND '".$waktu2." 23:59:59'";
         } elseif ($opt==1) {
-            $raw ="SELECT id,'no',foto,nama,waktu,tempat, status FROM recognition WHERE waktu BETWEEN '".$waktu." 00' AND '".$waktu." 23:59:59' AND status=1";
+            $raw ="SELECT id,'no',foto,nama,waktu,tempat, status FROM recognition WHERE waktu BETWEEN '".$waktu." 00' AND '".$waktu2." 23:59:59' AND status=1";
         } 
         else{
-            $raw ="SELECT id,'no',foto,nama,waktu,tempat, status FROM recognition WHERE waktu BETWEEN '".$waktu." 00' AND '".$waktu." 23:59:59' AND status=2";
+            $raw ="SELECT id,'no',foto,nama,waktu,tempat, status FROM recognition WHERE waktu BETWEEN '".$waktu." 00' AND '".$waktu2." 23:59:59' AND status=2";
         }
         
 

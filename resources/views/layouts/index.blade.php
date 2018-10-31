@@ -11,6 +11,8 @@
   <!-- styles -->
 <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- flattern -->
+  <!-- <link rel="stylesheet" href="{{ asset('adminlte/bower_components/bootstrap/dist/css/bootstrap.css')}}" >  -->
+  
   <link rel="stylesheet" href="{{ asset('flattern/css/bootstrap.css')}}" >  
   <link rel="stylesheet" href="{{ asset('flattern/css/bootstrap-responsive.css')}}" >  
   <link rel="stylesheet" href="{{ asset('flattern/css/fancybox/jquery.fancybox.css')}}" >  
@@ -43,7 +45,6 @@
     <link href="{{asset('ample/plugins/bower_components/multiselect/css/multi-select.css')}}" rel="stylesheet" type="text/css" />
  <!-- ample chart -->
  <!-- Bootstrap Core CSS -->
-  
 
  <!-- ample upload file -->
   <link rel="stylesheet" href="{{asset('ample/plugins/bower_components/dropify/dist/css/dropify.min.css')}}">

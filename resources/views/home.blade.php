@@ -1,20 +1,20 @@
 @extends('layouts.index')
 @section('aktifhome')
                     <li class="dropdown active"><a href="{{route('home')}}">HOME</i></a></li>
-                    <li><a href="{{url('/grafik')}}">GRAFIK</a></li>
-                    <li><a href="{{url('/detail')}}">DETAIL</a></li>
-					<li><a href="{{url('/absen')}}">ABSEN</a></li>@endsection
+                    <!-- <li><a href="{{url('/grafik')}}">GRAFIK</a></li> -->
+                    <li><a href="{{url('/detail')}}">DETAIL PENGENALAN</a></li>
+					<li><a href="{{url('/absen')}}">KEHADIRAN</a></li>@endsection
 @section('content')
 <div class="container">
     <div class="container">
-        <div class=".col-md-6">
+        <div class=".col-md-6 span8">
         <div id="parent_cam" style="">
-            <!-- <img id="cam_0" src="http://10.151.33.16:5000/calc" width="640" height="480"> -->
+            <img id="cam_0" src="http://10.151.33.16:5000/calc" width="640" height="480">
         </div>
         <!-- <iframe src="http://localhost:8080/stream_video"></iframe> -->
       <!-- <iframe width="420" height="350" src="rtsp://admin:admin123@10.151.33.60:554/cam/realmonitor?channel=1&subtype=0" frameborder="2px"allowfullscreen style="margin-right: 30px;"></iframe> -->
     </div>
-    <div class=".col-xs-6 .col-sm-4">
+    <div class=".col-xs-6 .col-sm-4 span2">
                                     <h5 class="m-t-10 m-b-10">Pilih Tempat</h5>
                                     <select id="camera" class="" data-style="form-control">
                                         <optgroup label="Lokasi Informatika">

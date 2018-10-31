@@ -2,16 +2,16 @@
 
 @section('aktifnotif')
 					<li><a href="{{route('home')}}">HOME</i></a></li>
-					<li ><a href="{{url('/grafik')}}">GRAFIK</a></li>
+					<!-- <li ><a href="{{url('/grafik')}}">GRAFIK</a></li> -->
                     <li><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li class="dropdown active"><a href="{{url('/absen')}}">ABSEN</a></li>
+                    <li class="dropdown active"><a href="{{url('/absen')}}">KEHADIRAN</a></li>
 @endsection
  @section ('notif')
 <div class="container">
 	
 	<div class="col-md-12">
                     <div class="panel">
-                        <h3 class="box-title">ABSEN</h3>
+                        <h3 class="box-title">KEHADIRAN</h3>
                         <div class="panel-heading"></div>
                         <div class="table-responsive">
                             <table id="example1" class="table table-striped table-bordered table-hover manage-u-table" >

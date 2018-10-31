@@ -3,9 +3,9 @@
 @extends('layouts.index')
 @section('aktifgraf')
 					<li><a href="{{route('home')}}">HOME</i></a></li>
-					<li class="dropdown active"><a href="{{url('/grafik')}}">GRAFIK</a></li>
-                    <li><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li><a href="{{url('/absen')}}">ABSEN</a></li>
+					<!-- <li class="dropdown active"><a href="{{url('/grafik')}}">GRAFIK</a></li> -->
+                    <li><a href="{{url('/detail')}}">DETAIL PENGENALAN</a></li>
+                    <li><a href="{{url('/absen')}}">KEHADIRAN</a></li>
 @endsection
 
 @section ('graf')
@@ -29,7 +29,7 @@
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div> -->
             </div>
-            <div class="box-body ">
+            <div class="box-body span11">
               <canvas id="myChart" style="width:200,height:200" width="200" height="200"></canvas>
               <!-- <div id="bar-chart" style="height: 300px;"></div> -->
             </div>
@@ -72,7 +72,7 @@
       labels: [],
       datasets:[{
         label : 'Dikenali',
-        backgroundColor:'#1c6bea',
+        backgroundColor:'#00b20b',
         borderColor: 'rgba(200, 200, 200, 0.75)',
         // hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
         hoverBorderColor: 'rgba(200, 200, 200, 1)',
