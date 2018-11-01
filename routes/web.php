@@ -34,6 +34,7 @@ Route::post('/absen_hari', 'Absensi@get_per_hari');
 Route::post('/detail_tgl', 'Absensi@detail_tgl');
 
 Route::post('/alert_detail', 'RecogController@send_alert_detail');
+// Route::get('/alert_msg', 'RecogController@send_alert');
 Route::post('/change_status', 'RecogController@change_status');
 
 Route::get('/unregister', 'RecogController@unregister');

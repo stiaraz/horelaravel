@@ -19,7 +19,7 @@ class RecogController extends Controller
     	$name = $request->all();
     	$current_time = Carbon::now();
     	
-  //   	// echo strlen($tempat);
+    	// echo strlen($tempat);
   // //   	$name = Input::all();
 		$uploadedFile = $request->file('image');   
 		$file = $uploadedFile->store('public');
@@ -48,11 +48,21 @@ class RecogController extends Controller
 
         }
         // dd($result);
-        if(count($result)>0)
-            $raw="INSERT INTO recognition (`tempat`, `waktu`,`nama`,`foto`, `status`) VALUES ('".$tempat."','".$current_time."','".$data[1]."','".$file."',".$status.")";
-        else 
-            $raw="INSERT INTO recognition (`tempat`, `waktu`,`nama`,`foto`, `status`) VALUES ('".$tempat."','".$current_time."','".$nama."','".$file."',".$status.")";
-    	$query = DB::insert(DB::raw($raw));
+        // $nama = "unregistered";
+        if(strcmp("unregistered",$nama)==0){
+            $raw="INSERT INTO recognition (`tempat`, `waktu`,`nama`,`foto`, `status`) VALUES ('".$tempat."','".$current_time."','".$nama."','".$file."','2')";
+            $query = DB::insert(DB::raw($raw));
+            // return $this->send_alert($tempat, $current_time);
+
+        }
+        else{
+            if(count($result)>0)
+                $raw="INSERT INTO recognition (`tempat`, `waktu`,`nama`,`foto`, `status`) VALUES ('".$tempat."','".$current_time."','".$data[1]."','".$file."',".$status.")";
+            else 
+                $raw="INSERT INTO recognition (`tempat`, `waktu`,`nama`,`foto`, `status`) VALUES ('".$tempat."','".$current_time."','".$nama."','".$file."',".$status.")";
+            $query = DB::insert(DB::raw($raw));
+        }
+        
 		// $file = File::create([
 	 //        'title' => $request->title ?? $uploadedFile->getClientOriginalName(),
 	 //        'filename' => $path
@@ -157,7 +167,18 @@ class RecogController extends Controller
         return response()->json($result);
     }
 
-    public function send_alert(){
+    public function send_alert($tempat, $waktu){
+        // $tempat = Input::get('tempat');
+        // $waktu = Input::get('waktu');
+        // dd($tempat);
+        // print($waktu);
+        // $tempat ="kcv";
+        // $waktu ="2018-11-01 18.00.00";
+        $pesan ="Telah terdeteksi unregister person oleh sistem pada ".$waktu." di ".$tempat.", mohon segera dicek.";
+        $pesan_enc = urlencode($pesan);
+        $send_msg = "https://reguler.zenziva.net/apps/smsapi.php?userkey=061un3&passkey=r3rooyrl9z&nohp=08165468409&pesan=".$pesan_enc;
+        // $send_msg = "https://reguler.zenziva.net/apps/smsapi.php?userkey=061un3&passkey=r3rooyrl9z&nohp=08165468409&pesan=".$pesan_enc;
+        $url = file_get_contents($send_msg);
 
     }
 
@@ -165,7 +186,7 @@ class RecogController extends Controller
     public function send_alert_detail(){
         $tempat = Input::get('tempat');
         $waktu = Input::get('waktu');
-        $pesan ="Terdeteksi seseorang yang tidak teridentifikasi oleh sistem pada ".$waktu." di ".$tempat.", mohon segera ditindaklanjuti";
+        $pesan ="Telah terdeteksi seseorang yang berpotensi mengancam keamanan pada ".$waktu." di ".$tempat.", mohon segera ditindaklanjuti. (Admin)";
         $pesan_enc = urlencode($pesan);
         $send_msg = "https://reguler.zenziva.net/apps/smsapi.php?userkey=061un3&passkey=r3rooyrl9z&nohp=081331006457&pesan=".$pesan_enc;
         // $send_msg = "https://reguler.zenziva.net/apps/smsapi.php?userkey=061un3&passkey=r3rooyrl9z&nohp=08165468409&pesan=".$pesan_enc;

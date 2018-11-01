@@ -53,7 +53,7 @@
                 if($('#cam_0').length>0)
                 {
                     $('#cam_0').remove();
-                    var txt1 = '<img id="cam_1" src="http://localhost:9090/calc" width="640" height="480">';
+                    var txt1 = '<img id="cam_1" src="http://10.151.11.56:9090/calc" width="640" height="480">';
                     $("#parent_cam").append(txt1);
                 }
             }
