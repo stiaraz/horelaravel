@@ -19,13 +19,39 @@ class RecogController extends Controller
     	$name = $request->all();
     	$current_time = Carbon::now();
     	
-    	// echo strlen($tempat);
-  //   	$name = Input::all();
+  //   	// echo strlen($tempat);
+  // //   	$name = Input::all();
 		$uploadedFile = $request->file('image');   
-		$file = $uploadedFile->store('public/files');
+		$file = $uploadedFile->store('public');
 		// echo $path;
+        $raw="SELECT id, nama FROM `listanggota` WHERE nama like '%".$nama."%' limit 1";
+        $result= DB::select(DB::raw($raw));
 
-		$raw="INSERT INTO recognition (`tempat`, `waktu`,`nama`,`foto`, `status`) VALUES ('".$tempat."','".$current_time."','".$nama."','".$file."',".$status.")";
+        
+        if(count($result)>0){
+            $data=array();
+            foreach ($result as $key => $value) {
+                foreach ($value as $key2 => $value2) {
+                    $data[]=$value2;
+                }
+            }
+
+            $current_time2=date('Y-m-d', time());
+            $raw="SELECT id, tanggal FROM absen WHERE id='".$data[0]."' AND 
+                tanggal>'".$current_time2." 00.00.00' AND tanggal<'".$current_time2." 23.59.59'";
+            $result= DB::select(DB::raw($raw));
+
+            if(count($result)==0){
+                $raw="INSERT INTO absen (`id`,`tanggal`) VALUES ('".$data[0]."','".$current_time."')";
+                $result= DB::select(DB::raw($raw));
+            }
+
+        }
+        // dd($result);
+        if(count($result)>0)
+            $raw="INSERT INTO recognition (`tempat`, `waktu`,`nama`,`foto`, `status`) VALUES ('".$tempat."','".$current_time."','".$data[1]."','".$file."',".$status.")";
+        else 
+            $raw="INSERT INTO recognition (`tempat`, `waktu`,`nama`,`foto`, `status`) VALUES ('".$tempat."','".$current_time."','".$nama."','".$file."',".$status.")";
     	$query = DB::insert(DB::raw($raw));
 		// $file = File::create([
 	 //        'title' => $request->title ?? $uploadedFile->getClientOriginalName(),
@@ -85,8 +111,9 @@ class RecogController extends Controller
     				$row[]=$count2;
     			}
     			elseif ($count==2){
-    				$value_foto =asset("storage/files/".$value2);
-    				$row[]="<img style='height:100px; width:100px' src=".$value_foto.">";
+                    // $value_foto = 
+    				$value_foto =asset("storage/".explode('/', $value2)[1]);
+    				$row[]="<img style='height:200px; width:600px' src=".$value_foto.">";
     			}
                 elseif($count==6){
                     if ($value2==2) {
@@ -163,7 +190,7 @@ class RecogController extends Controller
                     $row[]=$count2;
                 }
                 elseif ($count==2){
-                    $value_foto =asset("storage/files/".$value2);
+                    $value_foto =asset("storage/".explode('/', $value2)[1]);
                     $row[]="<img style='height:100px; width:100px' src=".$value_foto.">";
                 }
                 elseif($count==6){

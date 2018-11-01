@@ -127,6 +127,9 @@
                 "targets":[0],
                 "visible":false,
                 "searchable":false
+            },{
+                "targets":[2],
+                "width":"400px",
             }]
             
         });
