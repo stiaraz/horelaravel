@@ -3,7 +3,18 @@
                     <li class="dropdown active"><a href="{{route('home')}}">HOME</i></a></li>
                     <!-- <li><a href="{{url('/grafik')}}">GRAFIK</a></li> -->
                     <li><a href="{{url('/detail')}}">DETAIL PENGENALAN</a></li>
-					<li><a href="{{url('/absen')}}">KEHADIRAN</a></li>@endsection
+					<li class="dropdown"><a>KEHADIRAN</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a class="dropdown" href="{{url('/absen_hari')}}">Rekap per hari</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown" href="{{url('/absen')}}">Rekap per orang</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="{{url('/unregister')}}">UNREGISTERED</a></li>
+                    @endsection
 @section('content')
 <div class="container">
     <div class="container">
@@ -42,7 +53,7 @@
                 if($('#cam_0').length>0)
                 {
                     $('#cam_0').remove();
-                    var txt1 = '<img id="cam_1" src="" width="640" height="480">';
+                    var txt1 = '<img id="cam_1" src="http://localhost:9090/calc" width="640" height="480">';
                     $("#parent_cam").append(txt1);
                 }
             }

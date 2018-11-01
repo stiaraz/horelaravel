@@ -145,4 +145,44 @@ class RecogController extends Controller
         $url = file_get_contents($send_msg);
         return response()->json($url);
     }
+
+    public function unregister(){
+        return view('unregistered');
+    }
+
+    public function get_unreg(){
+        $raw ="SELECT id,'no',foto,nama,waktu,tempat, status FROM recognition WHERE status=2 ORDER BY waktu DESC";
+        $result = DB::select(Db::raw($raw));
+        $data=array();
+        $count2=1;
+        foreach ($result as $key => $value) {
+            $row =array();
+            $count =0;
+            foreach ($value as $key2 => $value2) {
+                if ($count==1) {
+                    $row[]=$count2;
+                }
+                elseif ($count==2){
+                    $value_foto =asset("storage/files/".$value2);
+                    $row[]="<img style='height:100px; width:100px' src=".$value_foto.">";
+                }
+                elseif($count==6){
+                    if ($value2==2) {
+                        $row[]='<button type="button" id="discard" class="btn btn-danger btn-outline btn-circle btn-lg m-r-5"> x </button>
+                        <button type="button" id="acc" class="btn btn-success btn-outline btn-circle btn-lg m-r-5"><i class="icon-check"></i></button>';
+                    }
+                    else $row[]='--';
+                }
+                else 
+                    $row[]=$value2;
+                $count++;
+            }
+            $count2++;
+            $data[]=$row;
+        }
+        $arr = array(
+            "data" => $data,
+        );
+        return response()->json($arr);
+    }
 }

@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- flattern -->
   <!-- <link rel="stylesheet" href="{{ asset('adminlte/bower_components/bootstrap/dist/css/bootstrap.css')}}" >  -->
-  
+
   <link rel="stylesheet" href="{{ asset('flattern/css/bootstrap.css')}}" >  
   <link rel="stylesheet" href="{{ asset('flattern/css/bootstrap-responsive.css')}}" >  
   <link rel="stylesheet" href="{{ asset('flattern/css/fancybox/jquery.fancybox.css')}}" >  
@@ -64,8 +64,8 @@
   <!-- data tables -->
   <link href="{{asset('ample/plugins/bower_components/datatables/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css" />
   <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
-  <script src="{{ asset('flattern/js/jquery.js')}}"></script>  
-
+<!--  <script src="{{ asset('flattern/js/jquery.js')}}"></script>  -->
+  <script src="{{ asset('adminlte/bower_components/jquery/jquery-2.2.3.min.js')}}"></script>  
 </head>
 
 <body>
@@ -247,14 +247,14 @@
           </div>
         </div>
         <div class="row" style="margin-bottom: 3px;">
-          <div class="span4">
+          <div class="span2" style="margin-top:-10px">
 
             
               <a href="{{url('/')}}"><img src="{{ asset('flattern/img/gemastik.png') }}" alt="" class="logo" style="height: 120px; width: 110px; margin-top: -30px" /></a>
               <!-- <h1>Area Pelaksana Pemeliharaan</h1> -->
            
           </div>
-          <div class="span8">
+          <div class="span10">
             <div class="navbar navbar-static-top">
 
               <div class="navigation">
@@ -268,6 +268,7 @@
                     @yield('aktifgraf')
                     @yield('aktifdet')
                     @yield('aktifnotif')
+                    @yield('aktifunreg')
                       @endguest
                     
 @guest
@@ -291,10 +292,10 @@
                   </ul>
                 </nav>
               </div>
-             
+             <img src="{{asset('flattern/img/hdr2.png')}}" style="margin-top: 20px; margin-bottom: 10px">
             </div>
           </div>
-        </div><img src="{{asset('flattern/img/hdr2.png')}}" style="margin-left: 85px; margin-top: -1px; margin-bottom: 10px">
+        </div>
       </div>
     </header>
     <!-- end header -->
@@ -304,6 +305,7 @@
     @yield('graf')
     @yield('det')
     @yield('notif')
+    @yield('unreg')
 
     <section id="bottom">
       <div class="container">

@@ -5,7 +5,17 @@
 					<li><a href="{{route('home')}}">HOME</i></a></li>
 					<!-- <li class="dropdown active"><a href="{{url('/grafik')}}">GRAFIK</a></li> -->
                     <li><a href="{{url('/detail')}}">DETAIL PENGENALAN</a></li>
-                    <li><a href="{{url('/absen')}}">KEHADIRAN</a></li>
+                    <li class="dropdown"> <a >KEHADIRAN</a>
+                      <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a class="dropdown" href="{{url('/absen_hari')}}">Rekap per hari</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown" href="{{url('/absen')}}">Rekap per orang</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="{{url('/unregister')}}">UNREGISTERED</a></li>
 @endsection
 
 @section ('graf')

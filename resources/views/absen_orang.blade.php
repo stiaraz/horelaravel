@@ -3,15 +3,25 @@
 @section('aktifnotif')
 					<li><a href="{{route('home')}}">HOME</i></a></li>
 					<!-- <li ><a href="{{url('/grafik')}}">GRAFIK</a></li> -->
-                    <li><a href="{{url('/detail')}}">DETAIL</a></li>
-                    <li class="dropdown active"><a href="{{url('/absen')}}">KEHADIRAN</a></li>
+                    <li><a href="{{url('/detail')}}">DETAIL PENGENALAN</a></li>
+                    <li class="dropdown active"><a>KEHADIRAN</a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown">
+                                <a class="dropdown" href="{{url('/absen_hari')}}">Rekap per hari</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown" href="{{url('/absen')}}">Rekap per orang</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="{{url('/unregister')}}">UNREGISTERED</a></li>
 @endsection
  @section ('notif')
 <div class="container">
 	
 	<div class="col-md-12">
                     <div class="panel">
-                        <h3 class="box-title">KEHADIRAN</h3>
+                        <h3 class="box-title">Kehadiran</h3>
                         <div class="panel-heading"></div>
                         <div class="table-responsive">
                             <table id="example1" class="table table-striped table-bordered table-hover manage-u-table" >
